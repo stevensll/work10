@@ -1,7 +1,7 @@
 # include <stdlib.h>
 # include <string.h>
 # include <stdio.h>
-# include <linkedlist.c>
+# include "linkedlist.h"
 
 void print_list (struct node * node){
     printf("[\n");
