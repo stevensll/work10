@@ -38,3 +38,30 @@ struct node * free_list(struct node * n ){
     }
     return n;
 }
+
+struct node * remove_node (struct node *front, int data){
+    //given empty list
+    if(!front) return 0;
+    struct node * start = front;
+    // case where start node is the one to be removed
+    if(front->id == data){
+        start = front->next;
+        free(front);
+        return start;
+    }
+    //any other case where we must advance the list
+    while(front->next){
+        struct node * ahead = front->next;
+        // printf("%d, ahead is %d\n", front->id, ahead->id);
+
+        // any other cases
+        if(ahead->id == data){
+            printf("%d, expected %d\n", ahead->id, data);
+            front->next = ahead->next;
+            free(ahead);
+            break; 
+        }
+        front = front->next;
+    }
+    return start;
+}
